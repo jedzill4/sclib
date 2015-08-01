@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 """
-Sclib 0.3
+Sclib
 """
-# Requeriments
+# Requere
 # > pymongo
 # > beautifulsoup4
 # > scholar.py https://github.com/ckreibich/scholar.py
@@ -11,13 +11,14 @@ Sclib 0.3
 
 # TODO: 
 # > create collections (TESIS, SCHOOL, ETC) with others arguments 
+# > Finish the first version.
 
 import argparse as arg
 import sys, os
 import pymongo as pm
-import datetime
 
-import shutil  
+#import datetime
+#import shutil  
 class Error(Exception):
     """Base class for any Sclib error."""
 
