@@ -35,7 +35,7 @@ LOG_LEVEL = 1
 def Add(db,args):
     vprint(4,">>>> Add inicialization... \n")
     db.authenticate('writer','writer')
-    import scholar
+#    import scholar.scholar as scholar
 
     biblio = db['default'] #select default collection
 
@@ -59,8 +59,8 @@ def OnlineSearch(db,args):
     
 #    def PrintWebSearch(v,querier):
 
-    
-    import scholar
+#    sys.path.append( 
+    import scholar.scholar as scholar
     querier = scholar.ScholarQuerier()
     settings = scholar.ScholarSettings()
 
@@ -90,9 +90,9 @@ def OnlineSearch(db,args):
 
     querier.send_query(query)
     if args.citation != None :
-        scholar.citation_export(querier)
+        scholar.Scholar_citation_export(querier)
     else :
-        scholar.txt(querier,with_globals=True)
+        scholar.Scholar_txt(querier,with_globals=True)
     return 1
 
 def Tag(args):
@@ -424,9 +424,11 @@ def main():
             vprint(0,"> First time running %s ? please run:\n\t %s %s\n" % (PROG,PROG,'config --install'))
             sys.exit(1)
 
+    try :
+        vprint(4,">>>> %s %s routine... \n" % (PROG,args.routine))
+    except AttributeError :
+        argparser.print_help()
 
-    vprint(4,">>>> %s %s routine... \n" % (PROG,args.routine))
     routines[args.routine](db,args)
-
 if __name__ == "__main__":
     sys.exit(main())
