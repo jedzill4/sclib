@@ -59,8 +59,14 @@ def OnlineSearch(db,args):
     
 #    def PrintWebSearch(v,querier):
 
-#    sys.path.append( 
-    import scholar.scholar as scholar
+#    sys.path.append(
+    import imp
+    name = 'scholar.py'
+    fp, pathname,desc = imp.find_module(name)
+    print(imp.load_module(scholar,fp,pathname,desc))
+    print(imp.is_builtin('scholar')) 
+    
+
     querier = scholar.ScholarQuerier()
     settings = scholar.ScholarSettings()
 
@@ -105,7 +111,7 @@ def Open(args):
 
 def Meta(args):
     vprint(4,">>>> Meta inicialization... \n")
-    import scholar
+    #import scholar
     return 1
 
 def Export(args):

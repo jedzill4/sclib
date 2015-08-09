@@ -1,0 +1,3 @@
+[submodule "modules/scholar"]
+	path = modules/scholar
+	url = git@github.com:jedzill4/scholar.git
