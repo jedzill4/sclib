@@ -60,12 +60,7 @@ def OnlineSearch(db,args):
 #    def PrintWebSearch(v,querier):
 
 #    sys.path.append(
-    import imp
-    name = 'scholar.py'
-    fp, pathname,desc = imp.find_module(name)
-    print(imp.load_module(scholar,fp,pathname,desc))
-    print(imp.is_builtin('scholar')) 
-    
+    from modules import scholar
 
     querier = scholar.ScholarQuerier()
     settings = scholar.ScholarSettings()
